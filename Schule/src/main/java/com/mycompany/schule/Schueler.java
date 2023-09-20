@@ -46,9 +46,8 @@ public class Schueler {
         return KonsolenTextVorname;
     }
     
-    public void einlesenSchuelerDaten(){
-        konsolenAusgabenVorname();
-        konsolenAusgabenNachname();
+    public String einlesenSchuelerDaten(){
+        return konsolenAusgabenVorname() + " " + konsolenAusgabenNachname();
     }
     
     public String konsolenAusgabenNachname(){

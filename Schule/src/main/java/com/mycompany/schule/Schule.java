@@ -16,6 +16,5 @@ public class Schule {
         System.out.println(s1.konsolenAusgabenVorname());
         System.out.println(s1.konsolenAusgabenNachname());
         
-        
     }
 }

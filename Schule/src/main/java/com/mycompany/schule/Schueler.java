@@ -12,10 +12,14 @@ import java.util.Scanner;
  */
 public class Schueler {
 
-    String vorname;
-    String nachname;
-    String klasse;
+    private String vorname;
+    private String nachname;
+    private String klasse;
+    // Schlüssel final variable ist unveränderbar
+    private final String KonsolenTextVorname = "Gebe bitte den Vornamen ein: ";
+    private final String KonsolenTextNachname = "Gebe bitte den Nachnamen ein: ";
     Lehrer lehrer;
+    Scanner sc;
 
     // Standartkonstruktor
     public Schueler() {
@@ -38,6 +42,19 @@ public class Schueler {
         this.lehrer = lehrer;
     }
 
+    public String konsolenAusgabenVorname(){
+        return KonsolenTextVorname;
+    }
+    
+    public void einlesenSchuelerDaten(){
+        konsolenAusgabenVorname();
+        konsolenAusgabenNachname();
+    }
+    
+    public String konsolenAusgabenNachname(){
+        return KonsolenTextNachname;
+    }
+    
     public void setKlasse() {
         this.klasse = lehrer.getKlasse();
     }

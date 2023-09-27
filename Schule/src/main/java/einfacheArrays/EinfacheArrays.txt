@@ -1,0 +1,47 @@
+1) Klasse Sparbuch
+
+Ein Array enthält diese Werte:
+1000
+1000
+800
+1300
+
+private int[] einzahlungsliste = new int[4]
+
+1a) Wie viele Elemente enthält dieses Array?
+
+1b) Welchen index-Wert hat das erste Element?
+
+1c) Welchen Index-Wert hat das vierte Element?
+
+1d) Legen Sie ein double-Array einzahlungsliste als Attribut in der Klasse Sparbuch an und weisen Sie die Werte zu; testen Sie zwei verschiedene Möglichkeiten der Wertzuweisung:
+- new … + Initialisierung im Konstruktor;
+- direkte Initialisierung {…} bei der Deklarierung
+
+HINWEIS: Stelle die Antworten auf die Aufgaben in der Konsle mit einer konkreten Ausgabe dar!
+
+-------------------------------------------------------------------------------------------
+2) Klasse Glaskugel
+
+2a) Legen Sie ein int-Array namens lottoListe an (als Attribut).
+
+2b) In der Methode lottozahlenErzeugen() werden 6 zufällige Zahlen zwischen 1 und 49 generiert und in das Array geschrieben (Reihenfolge und Dopplungen egal).
+
+2c) In der Methode lottzahlenAusgeben() werden alle 6 Zahlen auf der Konsole (mit System.out.println(…) )angezeigt.
+
+2d) Zusatzaufgabe: Lasse keine Werte doppelt zu!
+
+---------------------------------------------------------------------------------------------
+3) Klasse SchluesselbrettVierer
+
+3a) Erzeugen Sie ein Array namens schluesselliste, das Objekte der Klasse Schluessel aufnehmen kann.
+
+3b) Sobald der Methode schluesselAnsBrettHaengen(…) via Parameter ein Schlüssel übergeben wird, soll dieses Objekt in das Array eingefügt werden.
+Problem: Welchen Index-Wert benutzen wir jeweils? Seien Sie kreativ!
+
+! Sie müssen nicht überprüfen, ob ein Schlüssel schon am Brett hängt. Notfalls kommt es zu Dopplungen.
+
+3c) Zusatzaufgabe: Jeder Schlüssel soll nur genau einmal auf dem Brett hängen dürfen.
+
+
+	

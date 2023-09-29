@@ -9,9 +9,21 @@ package einfacheArrays;
  * @author INF3A_usenj
  */
 public class EinfcheArrays {
+
     public static void main(String[] args) {
-        Sparbuch s1 = new Sparbuch();
-        System.out.println(s1.getAnzahlElementeImArray());
+        int geld0, geld1, geld2, geld3;
+        geld0 = 1000;
+        geld1 = 1000;
+        geld2 = 800;
+        geld3 = 1300;
+
+        Glaskugel g1 = new Glaskugel();
+        Sparbuch s1 = new Sparbuch(geld0, geld1, geld2, geld3);
+        System.out.println("Anzahl der Elemente im Array: " + s1.getAnzahlElementeImArray());
+        System.out.println("Anzahl der Elemente im Array: " + s1.getElementIndex(geld3));
+        
+        g1.lottozahlenErzeugen(1, 49);
+        g1.lottzahlenAusgeben();
+        
     }
-    
 }

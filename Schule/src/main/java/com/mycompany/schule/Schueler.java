@@ -4,74 +4,47 @@
  */
 package com.mycompany.schule;
 
-import java.util.Scanner;
-
 /**
  *
  * @author INF3A_usenj
  */
 public class Schueler {
-
-    private String vorname;
-    private String nachname;
-    private String klasse;
-    // Schlüssel final variable ist unveränderbar
-    private final String KonsolenTextVorname = "Gebe bitte den Vornamen ein: ";
-    private final String KonsolenTextNachname = "Gebe bitte den Nachnamen ein: ";
+    
+    String vorname;
+    String nachname;
+    String klasse;
     Lehrer lehrer;
-    Scanner sc;
+    public static int objektZähler=0;
+    
+    //Defaultkonstruktor
+    public Schueler(){}
 
-    // Standartkonstruktor
-    public Schueler() {
-    }
-
-    public Schueler(String vorname, String nachname) {
-        this.vorname = vorname;
-        this.nachname = nachname;
-    }
-
-    public Schueler(String vorname, String nachname, String klase) {
+    public Schueler(String vorname, String nachname, String klasse){
+    
         this.vorname = vorname;
         this.nachname = nachname;
         this.klasse = klasse;
+    
     }
-
-    public Schueler(String vorname, String nachname, Lehrer lehrer) {
+    
+    public Schueler(String vorname, String nachname, Lehrer lehrer){
+        
         this.vorname = vorname;
         this.nachname = nachname;
         this.lehrer = lehrer;
-    }
-
-    public String konsolenAusgabenVorname(){
-        return KonsolenTextVorname;
-    }
-    
-    public String einlesenSchuelerDaten(){
-        return konsolenAusgabenVorname() + " " + konsolenAusgabenNachname();
-    }
-    
-    public String konsolenAusgabenNachname(){
-        return KonsolenTextNachname;
-    }
-    
-    public void setKlasse() {
         this.klasse = lehrer.getKlasse();
+        
     }
-
-    public void setKlasse(Lehrer lehrer) {
-        this.klasse = lehrer.getKlasse();
+    
+    public Schueler(String vorname, String nachname){
+        
+        objektZähler++;
+        this.vorname = vorname;
+        this.nachname = nachname;
+    
     }
-
-//    public Schueler(String vorname, String nachname){
-//        this.vorname = vorname;
-//        this.nachname = nachname;
-//        this.klasse = useScanner("Gebe die Klasse ein: ");
-//    }
-    @Override
-    public String toString() {
-        return vorname + " " + nachname + " " + klasse;
-    }
-
+    
+    
     public String getVorname() {
         return vorname;
     }
@@ -94,5 +67,18 @@ public class Schueler {
 
     public void setKlasse(String klasse) {
         this.klasse = klasse;
+    }
+    
+        @Override
+    public String toString(){
+        
+        return vorname + " " + nachname + " " + klasse;
+        
+    }
+    
+    public String display(){
+        
+        return vorname + " " + nachname + " " + objektZähler;
+        
     }
 }

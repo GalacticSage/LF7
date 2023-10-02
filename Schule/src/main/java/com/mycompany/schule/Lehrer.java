@@ -4,25 +4,46 @@
  */
 package com.mycompany.schule;
 
+import java.util.Scanner;
+
 /**
  *
  * @author INF3A_usenj
  */
 public class Lehrer {
-
-    String vorname;
-    String nachname;
-    String klasse;
-
-    public Lehrer() {
-    }
-
-    public Lehrer(String vorname, String nachname, String klasse) {
+    
+    private String vorname;
+    private String nachname;
+    private String klasse;
+    private final String konsolentextvorname = "Gib den Vornamen ein: ";
+    private final String konsolentextnachname = "Gib den Nachnamen ein: ";
+    
+    public static int objektZähler=0;
+    //Schlüsselwort static: keine Bindung an ein Objekt
+    
+    public Lehrer(){}
+    
+    public Lehrer(String vorname, String nachname, String klasse){
+        
+        objektZähler++;
         this.vorname = vorname;
         this.nachname = nachname;
         this.klasse = klasse;
+    
     }
-
+    
+    public String konsolenausgabevorname(){
+        return konsolentextvorname;
+    }
+    
+    public String konsolenausgabenachname(){
+        return konsolentextnachname;
+    }
+    
+    public String einlesenschuelerdaten(){
+        return konsolenausgabevorname() + " " + konsolenausgabenachname();
+    }
+    
     public String getVorname() {
         return vorname;
     }
@@ -46,5 +67,11 @@ public class Lehrer {
     public void setKlasse(String klasse) {
         this.klasse = klasse;
     }
-
+    
+    public String display(){
+        
+         return vorname + " " + nachname + " " + objektZähler;
+        
+    }
+    
 }

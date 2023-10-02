@@ -13,7 +13,7 @@ public class Schule {
 
     public static void main(String[] args) {
 
-        int ersteNichtInitalisiertePosition;
+        int ersteNichtInitalisiertePosition = 0;
 
         Scanner sc = new Scanner(System.in);
 
@@ -76,8 +76,20 @@ public class Schule {
             switch (benutzerWahl) {
                 case 1:
                     System.out.println("Schülerliste");
+                    for (int i = 0; i <= schuelerArray.length - 1; i++) {
+                        if (schuelerArray[i] != null) {
+                            System.out.println(schuelerArray[i].toString());
+                        }
+                    }       
                     break;
                 case 2:
+                    System.out.println("Vorname :");
+                    String vorname = sc.next();
+                    sc.nextLine();
+                    System.out.println("Nachname :");
+                    String nachname = sc.nextLine();
+                    schuelerArray[ersteNichtInitalisiertePosition] = new Schueler(vorname, nachname);
+                    System.out.println("Schüler hinzugefügt");
                     break;
                 case 3:
                     System.out.println("Programm beendet");

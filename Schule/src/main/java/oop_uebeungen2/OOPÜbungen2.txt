@@ -1,0 +1,20 @@
+Übungen zu Klassen, Objekten, Verzweigungs und Wiederholungsstrukturen mit einem Schwerpunkt auf die "Switch".
+
+1. Schreibe ein Programm, das unter Verwendung einer Switch, dem Benutzer ermöglicht, einen Wochentag, als Zahl einzugeben und darauf den Namen des Wochentags ausgibt.
+Montag wäre der erste Tag der Woche.
+Speichere die Wochentage in ein Array und lies aus diesem für die Ausgaben aus.
+
+2. Schreibe ein Programm, das überprüft, ob die Eingabe eines Wortes mit einem Selbstlaut oder Konsonant startet.
+Tipp: Der Anfangsbuchstaben eines beliebigen Strings kann mit "input.next().charAt(0)" gelesen werden. Setzt natürlich eine Variable vom Typ char voraus.
+
+3. Schreibe ein Programm, das überprüft, ob die Eingabe ein gerader oder ungerader Wert ist.
+Tipp: Verwende den Modulo Operator.
+
+4. Schreibe ein einfaches Taschenrechnerprogramm. Der Benutzer soll in der Lage sein, zwei Werte einzugeben und eine der vier Grundrechnungsarten zu wählen.
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@ public class MitarbeiterListe {
     Mitarbeiter[] mitarbeiterListe = new Mitarbeiter[n];
     Scanner sc = new Scanner(System.in);
 
-    public void findenInitialisierterUndNichtinitialisierterPositionen() {
+    public void findenInitialisierterUndNichtInitialisierterPositionen() {
         for (int i = 0; i < mitarbeiterListe.length - 1; i++) {
             if (mitarbeiterListe[i] != null) {
                 System.out.println("Indexposition " + i + " enthält ein Objekt - not null");

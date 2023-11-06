@@ -4,6 +4,7 @@
  */
 package com.mycompany.vererbung;
 
+
 /**
  * @author INF3A_usenj
  */
@@ -24,10 +25,10 @@ public class Person {
     }
 
     public String ganzeNamen() {
-        return vorname + " " + nachname;
+        return "Vorname: " + vorname + " Nachname: " + nachname;
     }
 
     public String alleDaten() {
-        return ganzeNamen() + " " + alter;
+        return ganzeNamen() + " Alter: " + alter;
     }
 }

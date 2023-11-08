@@ -1,4 +1,4 @@
-package com.mycompany.vererbung;
+package utils;
 
 public class ConsoleColors {
     // Reset

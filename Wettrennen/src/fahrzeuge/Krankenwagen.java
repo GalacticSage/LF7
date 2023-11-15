@@ -3,8 +3,9 @@ package fahrzeuge;
 public class Krankenwagen extends Auto{
 
     private boolean blaulicht = false;
-    public Krankenwagen(double kmStand, double geschwindigkeit) {
-        super(kmStand, geschwindigkeit);
+    public Krankenwagen(double kmStand) {
+        super(kmStand);
+
     }
 
     public boolean setBlaulichtTrue(){

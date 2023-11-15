@@ -1,9 +1,8 @@
 package fahrzeuge;
 
 public class Auto extends Fahrzeug{
-    public Auto(double kmStand, double geschwindigkeit) {
-        super(kmStand, geschwindigkeit);
-        setMaxGeschwindigkeit(140);
-        setAnzahlRaeder(4);
+    public Auto(double kmStand) {
+        super(kmStand, 4, 140);
+
     }
 }

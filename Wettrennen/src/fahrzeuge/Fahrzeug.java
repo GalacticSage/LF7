@@ -9,9 +9,10 @@ public class Fahrzeug {
 
 
     // Constructor
-    public Fahrzeug(double kmStand, double geschwindigkeit) {
+    public Fahrzeug(double kmStand, int anzahlRaeder, double maxGeschwindigkeit ) {
         this.kmStand = kmStand;
-        this.geschwindigkeit = geschwindigkeit;
+        this.anzahlRaeder= anzahlRaeder;
+        this.maxGeschwindigkeit = maxGeschwindigkeit;
     }
 
 
@@ -33,7 +34,8 @@ public class Fahrzeug {
     }
     public double setzeGeschwindigkeit(double geschwindigkeit) {
         if (geschwindigkeit > maxGeschwindigkeit) {
-            this.geschwindigkeit = maxGeschwindigkeit;
+            this.geschwindigkeit = 0;
+            System.out.println(ConsoleColors.RED + "Die eingestellte Geschwindigkeit ist zu hoch!" + ConsoleColors.RESET);
         } else {
             this.geschwindigkeit = geschwindigkeit;
         }

@@ -1,8 +1,8 @@
 package fahrzeuge;
 
 public class Rennwagen extends Auto{
-    public Rennwagen(double kmStand, double geschwindigkeit) {
-        super(kmStand, geschwindigkeit);
+    public Rennwagen(double kmStand) {
+        super(kmStand);
         setMaxGeschwindigkeit(220);
     }
 }

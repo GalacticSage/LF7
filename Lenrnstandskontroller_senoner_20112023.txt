@@ -1,0 +1,86 @@
+abstract class Flugzeug {
+    private String hersteller; // Herstellername
+    private int maxSpeed; // Max. Geschwindigkeit
+    private String immatNummer; // Immatrikulationsnummer
+    private int anzahlFluegel = 1; // Anzahl Flügelpaare
+    public Flugzeug(String hersteller, int maxSpeed, int anzahlFluegel) {
+        this.hersteller = hersteller;
+        this.maxSpeed = maxSpeed;
+        this.anzahlFluegel = anzahlFluegel;
+    }
+    public String getImmatNummer(){
+        return immatNummer;
+    }
+    protected void setImmatNummer(String immatNummer){
+        this.immatNummer = immatNummer;
+    }
+    public int getMaxSpeed(){
+        return maxSpeed;
+    }
+
+    abstract boolean getLooping();
+    // weitere Methoden
+}
+
+------------------------------------------------------
+
+public class Verkehrsflugzeug extends Flugzeug {
+
+    int anzahlPasagiere;
+
+    public Verkehrsflugzeug(String hersteller, int anzahlPassagiere, String immatNummer, int maxSpeed) {
+        super(hersteller, maxSpeed, 1);
+        setImmatNummer(immatNummer);
+        this.anzahlPasagiere = anzahlPassagiere;
+    }
+
+    ;
+
+    public int getAnzahlPasagiere() {
+        return anzahlPasagiere;
+    }
+
+    public void setAnzahlPasagiere(int anzahlPasagiere) {
+        this.anzahlPasagiere = anzahlPasagiere;
+    }
+
+    @Override
+    boolean getLooping() {
+        return false;
+    }
+
+}
+
+------------------------------------------------------------------
+
+public final class Doppeldecker extends Flugzeug {
+
+    private final int loopingSPeed = 320;
+    boolean offenesCockpit;
+
+    public Doppeldecker(String hersteller, int immatNummer, int maxSpeed, boolean offenesCockpit) {
+        super(hersteller, maxSpeed, 2);
+        this.offenesCockpit = offenesCockpit;
+        String tempImmatNummer = String.valueOf(immatNummer);
+        setImmatNummer(tempImmatNummer);
+    }
+
+    public Doppeldecker(String hersteller, String immatNummer, int maxSpeed) {
+        super(hersteller, maxSpeed, 2);
+        this.offenesCockpit = true;
+        setImmatNummer(immatNummer);
+    }
+
+    public boolean isOffenesCockpit() {
+        return this.offenesCockpit;
+    }
+
+    @Override
+    public boolean getLooping() {
+        if (getMaxSpeed() >= loopingSPeed) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

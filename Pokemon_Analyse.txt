@@ -4,4 +4,8 @@ Spieler sind Pokemontrainer. Pokemons sind Fantasiewesen. Ein Pokemontrainerfän
 
 Der Spieler besitzt eine Namen, Geschlecht & Alter(min. 15). Der Spieler kann ein Pokemon als Starterpokemon wählen. Die jeweiligen zur auswahl stehenden Pokemons, gehören zu einer der Grundklassen Feuer, Pflanze oder Wasser. Der Spieler kann belliebig Pokemons fangen aber nur 3 für einen Kampf wählen. Um einen Pokemon zu fangen braucht man eine Pokeball, der Spieler startet mit 5 Pokeballs. Um einen Pokemon zu fangen muss der Spieler Level höher sein als das Pokemon oder es wird Random entschieden ob der Pokemon gefangen wird.
 
-Pokemons gehören zu drei Basisklassen. Jede Basisklasse hat eine standard Nahkampfattacke und eine Elementattacke. Pokemons haben Lifepoints und Angriffspunkte bzw. Lvls.
+Pokemons gehören zu drei Basisklassen. Jede Basisklasse hat eine standard Nahkampfattacke und eine Elementattacke. Pokemons haben Lifepoints und Angriffspunkte bzw. Lvls. Man kann Pokemons upgraden bzw. das Lvl erhöhen.
+
+Pokedex kann man aufrufen um die Daten der Gefangenen Pokemons bzw. die die der Spieler besitzt zu sehen.
+
+Kämpfe: Jedes Pokemon hat einen einen Vorteil & Nachteil gegen andere Elemente. Wenn man einen Vorteil hat wird deine Attacke/Verteidigung multiplied.

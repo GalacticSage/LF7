@@ -36,12 +36,12 @@ public class PersonalVerwaltung {
 
     private ArrayList<Abrechnung> abrechnungListe = new ArrayList<Abrechnung>();
 
-    public void addAbrechnung(Abrechnung a) {
-        abrechnungListe.add(a);
+    public void addAbrechnung(Abrechnung x) {
+        abrechnungListe.add(x);
     }
 
-    public void removeAbrechnung(Abrechnung a) {
-        abrechnungListe.remove(a);
+    public void removeAbrechnung(Abrechnung x) {
+        abrechnungListe.remove(x);
     }
 
     public void listAbrechnungen(int periode) {

@@ -1,8 +1,8 @@
-public class Mitarbeiter {
+public class Mitarbeiter implements Comparable<Mitarbeiter> {
+
     private static int idCounter = 0;
     private int id;
     private String name;
-
 
     public Mitarbeiter(String name) {
         this.id = ++idCounter;
@@ -13,23 +13,35 @@ public class Mitarbeiter {
         return id;
     }
 
-
     public String getName() {
         return name;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String Name) {
+        this.name = Name;
+    }
+
+    public static int getIdCounter() {
+        return idCounter;
+    }
+
+    public static void setIdCounter(int idCounter) {
+        Mitarbeiter.idCounter = idCounter;
     }
 
     @Override
-    public String toString() {
-        return "Mitarbeiter ID: " + id + ", Name: " + name;
+    public int compareTo(Mitarbeiter m) {
+        return this.name.compareTo(m.getName());
     }
 
-    public boolean istKleiner(Mitarbeiter m) {
-        // Vergleiche die Namen der Mitarbeiter alphabetisch
-        return this.getName().compareTo(m.getName()) < 0;
+    // To String
+
+    @Override
+    public String toString() {
+        return "ID: " + id + " Name: " + name;
     }
 }

@@ -1,22 +1,30 @@
 public class Main {
     public static void main(String[] args) {
-        // Create a PersonalVerwaltung instance
-        PersonalVerwaltung personalVerwaltung = new PersonalVerwaltung();
 
-        // Add some employees
-        personalVerwaltung.addMitarbeiter(new Mitarbeiter("John Doe"));
-        personalVerwaltung.addMitarbeiter(new Mitarbeiter("Alice Smith"));
-        personalVerwaltung.addMitarbeiter(new Mitarbeiter("Bob Johnson"));
+        PersonalVerwaltung pv = new PersonalVerwaltung();
 
-        // Print the unsorted list
-        System.out.println("Unsorted Mitarbeiter:");
-        System.out.println(personalVerwaltung.listMitarbeiter());
+        Mitarbeiter m1 = new Mitarbeiter("Josef Maier");
+        pv.addMitarbeiter(m1);
 
-        // Sort the employees
-        personalVerwaltung.sortMitarbeiter();
+        Mitarbeiter m2 = new Mitarbeiter("Franz Huber");
+        pv.addMitarbeiter(m2);
 
-        // Print the sorted list
-        System.out.println("Sorted Mitarbeiter:");
-        System.out.println(personalVerwaltung.listMitarbeiter());
+        Mitarbeiter m3 = new Mitarbeiter("Werner Müller");
+        pv.addMitarbeiter(m3);
+
+        pv.sortMitarbeiter();
+        pv.listMitarbeiter();
+
+        pv.addAbrechnung(new LohnAbrechnung(1, m1, 10, 158));
+        pv.addAbrechnung(new GehaltsAbrechnung(1, m2, 3010));
+        pv.addAbrechnung(new GehaltsAbrechnung(1, m3, 2700));
+
+        System.out.println("\n");
+
+        pv.addAbrechnung(new LohnAbrechnung(2, m1, 16, 158));
+        pv.addAbrechnung(new GehaltsAbrechnung(2, m2, 3010));
+        pv.addAbrechnung(new GehaltsAbrechnung(2, m3, 2800));
+
+        pv.listAbrechnungen(2);
     }
 }

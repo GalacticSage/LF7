@@ -1,40 +1,74 @@
 import java.util.ArrayList;
 
 public class PersonalVerwaltung {
-    private ArrayList<Mitarbeiter> mitarbeiterListe;
 
-    public PersonalVerwaltung() {
-        this.mitarbeiterListe = new ArrayList<Mitarbeiter>();
+    private ArrayList<Mitarbeiter> mitarbeiterListe = new ArrayList<Mitarbeiter>();
+
+    public void addMitarbeiter(Mitarbeiter m) {
+        mitarbeiterListe.add(m);
     }
 
-    public void addMitarbeiter(Mitarbeiter mitarbeiter) {
-        this.mitarbeiterListe.add(mitarbeiter);
+    public void removeMitarbeiter(Mitarbeiter m) {
+        mitarbeiterListe.remove(m);
     }
 
-    public void removeMitarbeiter(Mitarbeiter mitarbeiter) {
-        this.mitarbeiterListe.remove(mitarbeiter);
+    public void listMitarbeiter() {
+        for (Mitarbeiter m : mitarbeiterListe) {
+            System.out.println(m.toString());
+        }
     }
 
+    // Bubblesort
     public void sortMitarbeiter() {
-        // Bubblesort
         int n = mitarbeiterListe.size();
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (mitarbeiterListe.get(j).istKleiner(mitarbeiterListe.get(j + 1))) {
-                    // Tausche die Mitarbeiterpositionen
-                    Mitarbeiter temp = mitarbeiterListe.get(j);
-                    mitarbeiterListe.set(j, mitarbeiterListe.get(j + 1));
-                    mitarbeiterListe.set(j + 1, temp);
+        Mitarbeiter temp = null;
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (mitarbeiterListe.get(j - 1).compareTo(mitarbeiterListe.get(j)) > 0) {
+                    temp = mitarbeiterListe.get(j - 1);
+                    mitarbeiterListe.set(j - 1, mitarbeiterListe.get(j));
+                    mitarbeiterListe.set(j, temp);
                 }
             }
         }
     }
 
-    public String listMitarbeiter() {
-        String output = "";
-        for (Mitarbeiter mitarbeiter : this.mitarbeiterListe) {
-            output += mitarbeiter.toString() + "\n";
+
+    private ArrayList<Abrechnung> abrechnungListe = new ArrayList<Abrechnung>();
+
+    public void addAbrechnung(Abrechnung a) {
+        abrechnungListe.add(a);
+    }
+
+    public void removeAbrechnung(Abrechnung a) {
+        abrechnungListe.remove(a);
+    }
+
+    public void listAbrechnungen(int periode) {
+        for (Abrechnung a : abrechnungListe) {
+            if (a.getPeriode() == periode) {
+                System.out.println(a.toString());
+            }
         }
-        return output;
+    }
+
+    public ArrayList<Mitarbeiter> getMitarbeiterListe() {
+        return mitarbeiterListe;
+    }
+
+    public void setMitarbeiterListe(ArrayList<Mitarbeiter> mitarbeiterListe) {
+        this.mitarbeiterListe = mitarbeiterListe;
+    }
+
+    public ArrayList<Abrechnung> getAbrechnungListe() {
+        return abrechnungListe;
+    }
+
+    public void setAbrechnungListe(ArrayList<Abrechnung> abrechnungListe) {
+        this.abrechnungListe = abrechnungListe;
+    }
+
+    public String toString() {
+        return "MitarbeiterListe: " + mitarbeiterListe.toString() + " AbrechnungListe: " + abrechnungListe.toString();
     }
 }

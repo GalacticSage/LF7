@@ -1,14 +1,38 @@
 public abstract class Abrechnung {
-    private int periode;
-    private Mitarbeiter mitarbeiter;
 
-    public Abrechnung(int periode, Mitarbeiter m) { ...}
+    public int periode;
+    public Mitarbeiter mitarbeiter;
 
-    public int getPeriode() { ...}
+    public Abrechnung(int periode, Mitarbeiter mitarbeiter) {
+        this.periode = periode;
+        this.mitarbeiter = mitarbeiter;
 
-    public Mitarbeiter getMitarbeiter() { .}
+    }
+
+    public int getPeriode() {
+        return periode;
+
+    }
+
+    public Mitarbeiter getMitarbeiter() {
+        return mitarbeiter;
+
+    }
+
+    public void setPeriode(int periode) {
+        this.periode = periode;
+    }
+
+    public void setMitarbeiter(Mitarbeiter mitarbeiter) {
+        this.mitarbeiter = mitarbeiter;
+    }
 
     public abstract double getVerdienst();
 
-    public String toString() { ...}
+
+    // To String
+
+    public String toString() {
+        return "Periode: " + periode + " Mitarbeiter: " + mitarbeiter.toString();
+    }
 }

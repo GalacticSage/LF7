@@ -1,11 +1,10 @@
-package Characters;
+package Characters.Pokemon;
 
- public abstract class GrassPokemon extends Pokemon{
-    private String type = "Grass";
-    private String[] moves = {"Razor Leaf", "Solar Beam"};
+public abstract class WaterPokemon extends Pokemon {
+    private String type = "Water";
+    private String[] moves = {"Bubble", "Surf"};
     private int[] movesDmg = {40, 55};
-
-    public GrassPokemon() {
+    public WaterPokemon() {
         super();
         super.setType(type);
         for (int i = 0; i < this.moves.length; i++) {

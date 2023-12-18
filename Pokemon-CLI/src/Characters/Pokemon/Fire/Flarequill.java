@@ -1,6 +1,6 @@
-package Characters.Pokemons.Fire;
+package Characters.Pokemon.Fire;
 
-import Characters.FirePokemon;
+import Characters.Pokemon.FirePokemon;
 
 public class Flarequill extends FirePokemon {
     private String name = "Flarequill";

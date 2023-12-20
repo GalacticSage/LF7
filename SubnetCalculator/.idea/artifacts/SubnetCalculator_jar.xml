@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SubnetCalculator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SubnetCalculator_jar</output-path>
+    <root id="archive" name="SubnetCalculator.jar">
+      <element id="module-output" name="SubnetCalculator" />
+    </root>
+  </artifact>
+</component>

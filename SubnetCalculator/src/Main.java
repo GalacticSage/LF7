@@ -2,8 +2,7 @@ public class Main {
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println("No arguments provided. Use -h or --help for help.");
-            return;
-        }else if ("-h".equals(args[0]) || "--help".equals(args[0])) {
+        } else if ("-h".equals(args[0]) || "--help".equals(args[0])) {
             System.out.println();
             System.out.println("Options:");
             System.out.println("  -mask\t\t\t\tUse a subnet mask to subnet the IP address");
@@ -19,46 +18,32 @@ public class Main {
             System.out.println("Written by: Johann S.");
         } else if ("-mask".equals(args[0])) {
             String IP = args[1];
-            if (!utils.checkIP(IP)) {
-                System.out.println("Invalid IP address.");
-                return;
-            }
             String subnetMask = args[2];
-            if (!utils.checkIP(subnetMask)) {
-                System.out.println("Invalid subnet mask.");
+            if (IP == null || subnetMask == null) {
+                System.out.println("Invalid arguments. Use -h or --help for help.");
                 return;
             }
-            Subnetter subnetter = new Subnetter(IP, subnetMask);
-            subnetter.getIpBinary();
-            subnetter.getSubnetMaskBinary();
-            subnetter.getCIDR();
-            subnetter.getBroadcastID();
-            subnetter.getNetworkID();
-            subnetter.getNumberOfHosts();
-            System.out.println("CALCULATING SUBNETS USING SUBNET MASK");
-            System.out.println(subnetter.toString());
+            if (!IpChecker.isIpAdresseCorrect(IP) || !IpChecker.isMaskCorrect(subnetMask)) {
+                System.out.println("Invalid IP address or Subnet Mask. Use -h or --help for help.");
+                return;
+            }
+            SubnetCalculator subnetCalculator = new SubnetCalculator(IP, subnetMask);
+            System.out.println(subnetCalculator.toString(true));
         } else if ("-cidr".equals(args[0])) {
             String IP = args[1];
-            if (!utils.checkIP(IP)) {
-                System.out.println("Invalid IP address.");
+            int cidr = Integer.parseInt(args[2]);
+            if (IP == null || cidr == 0) {
+                System.out.println("Invalid arguments. Use -h or --help for help.");
                 return;
             }
-            int CIDR = Integer.parseInt(args[2]);
-            if (!utils.checkCIDR(CIDR)) {
-                System.out.println("Invalid CIDR notation.");
+            if (!IpChecker.isIpAdresseCorrect(IP) || !IpChecker.isCidrCorrect(cidr)) {
+                System.out.println("Invalid IP address or CIDR. Use -h or --help for help.");
                 return;
             }
-            Subnetter subnetter = new Subnetter(IP, CIDR);
-            subnetter.getSubnetMask();
-            subnetter.getIpBinary();
-            subnetter.getSubnetMaskBinary();
-            subnetter.getBroadcastID();
-            subnetter.getNetworkID();
-            subnetter.getNumberOfHosts();
-            System.out.println("CALCULATING SUBNETS USING CIDR NOTATION");
-            System.out.println(subnetter.toString());
+            SubnetCalculator subnetCalculator = new SubnetCalculator(IP, cidr);
+            System.out.println(subnetCalculator.toString(false));
         } else {
-            System.out.println("Invalid argument. Use -h or --help for help.");
+            System.out.println("Invalid arguments. Use -h or --help for help.");
         }
     }
 }

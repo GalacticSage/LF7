@@ -1,8 +1,9 @@
 package Characters.Pokemon.Grass;
 
+import Characters.Pokemon.GrassPokemon;
 import Characters.Pokemon.WaterPokemon;
 
-public class Photosprout extends WaterPokemon {
+public class Photosprout extends GrassPokemon {
     private String name = "Photosprout";
     private String description = "Photosprout is a cheerful Grass-type Pokémon with petals that resemble a smiling face. It has the ability to harness sunlight to boost its energy.";
 

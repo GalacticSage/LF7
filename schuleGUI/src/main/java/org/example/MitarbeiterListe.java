@@ -39,6 +39,10 @@ public class MitarbeiterListe {
         }
     }
 
+    public int getErsteNichtInitialisiertePositionImArray() {
+        return ersteNichtInitialisiertePositionImArray;
+    }
+
     //Alle Objekte in einer MitarbeiterListe ausgeben
     public void ausgebenDerMitarbeiterListe() {
         for (int i = 0; i <= mitarbeiterListe.length - 1; i++) {
@@ -47,6 +51,11 @@ public class MitarbeiterListe {
             }
         }
     }//end of ausgebenDerMitarbeiterListe();
+
+    //returnt ein Mitarbeiter Objekt an einer bestimmten Position
+    public Mitarbeiter getMitarbeiterAnPosition(int index) {
+        return mitarbeiterListe[index];
+    }
 
     //Überprüfen ob ein Array vollständig gefüllt ist, verhindert, dass weitere Objekte in ein volles Array eingefügt wird
     public boolean überprüfenAufFreienSpeicherPlatz() {
@@ -58,7 +67,7 @@ public class MitarbeiterListe {
     }
 
     //Mitarbeiter einer Liste hinzufügen
-    public void hinzufügenObjektZurListe(Mitarbeiter m) {
+    public void hinzufuegenObjektZurListe(Mitarbeiter m) {
         if (überprüfenAufFreienSpeicherPlatz() == true) {
             findenDerErstenNichtInitialisiertenPositon();
             mitarbeiterListe[ersteNichtInitialisiertePositionImArray] = m;
@@ -73,5 +82,9 @@ public class MitarbeiterListe {
         n = n * 2;
         Mitarbeiter[] tempMitarbeiterliste = Arrays.copyOf(mitarbeiterListe, n);
         mitarbeiterListe = tempMitarbeiterliste;
+    }
+
+    public int getMitarbeiterListeLength() {
+        return mitarbeiterListe.length;
     }
 }//end class

@@ -25,7 +25,7 @@ public class ObjekteUndArrays {
                     m.setVorname(sc.nextLine());
                     System.out.println("Eingabe Nachname");
                     m.setNachname(sc.nextLine());
-                    sekretariatsMitarbeiterListe.hinzufügenObjektZurListe(m);
+                    sekretariatsMitarbeiterListe.hinzufuegenObjektZurListe(m);
                     break;
                 case "3":
                     System.out.println("Programm beendet");

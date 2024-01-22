@@ -10,6 +10,6 @@ public class main {
         mListe.hinzufuegenObjektZurListe(m2);
         mListe.hinzufuegenObjektZurListe(m3);
 
-        gui g = new gui(mListe);
+        Gui g = new Gui(mListe);
     }
 }

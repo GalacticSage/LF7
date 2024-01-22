@@ -8,7 +8,6 @@ package org.example;
  * @author INF3A_usenj
  */
 public class Mitarbeiter {
-
     private String vorname;
     private String nachname;
 

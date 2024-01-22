@@ -27,15 +27,15 @@ public class PanelDisplayMitarbeiter extends JPanel {
         this.add(txt_nachname);
 
         btn_displayMitarbeiter = new JButton("Mitarbeiter anzeigen");
-        btn_displayMitarbeiter.setBounds(10, 80, 165, 25);
+        btn_displayMitarbeiter.setBounds(10, 80, 200, 25);
         this.add(btn_displayMitarbeiter);
 
         btn_next = new JButton("Nächster Mitarbeiter");
-        btn_next.setBounds(10, 110, 165, 25);
+        btn_next.setBounds(10, 110, 200, 25);
         this.add(btn_next);
 
         btn_previous = new JButton("Vorheriger Mitarbeiter");
-        btn_previous.setBounds(10, 140, 165, 25);
+        btn_previous.setBounds(10, 140, 200, 25);
         this.add(btn_previous);
     }
 

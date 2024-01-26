@@ -1,5 +1,6 @@
 package org.example.GUI;
 
+import org.example.GUI.Lehrer.pShowLehrer;
 import org.example.Klasse;
 import org.example.Lehrer;
 import org.example.Schueler;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class mFrame extends JFrame implements ActionListener {
     private menuLeiste menuLeiste = new menuLeiste();
-    private pShowLehrer pShowLehrer = new pShowLehrer();
+    private org.example.GUI.Lehrer.pShowLehrer pShowLehrer = new pShowLehrer();
     private pGreeter pGreeter = new pGreeter();
 
     private ArrayList<Klasse> klassen;

@@ -1,9 +1,9 @@
-package org.example.GUI;
+package org.example.GUI.Lehrer;
 
 import javax.swing.*;
 
 public class pShowLehrer extends JPanel {
-    private JLabel label;
+    private JLabel label1, label2;
     private JTextArea textArea;
     private JScrollPane scrollPane;
     private JButton btn_anzeigen;
@@ -11,15 +11,18 @@ public class pShowLehrer extends JPanel {
     public pShowLehrer() {
         setLayout(null);
         setBounds(0, 0, 500, 500);
-        label = new JLabel("Vorname Nachname Matrikelnummer Fach");
-        label.setBounds(10, 10, 500, 20);
+        label1 = new JLabel("Lehrer Anzeigen");
+        label1.setBounds(210, 10, 480, 20);
+        label2 = new JLabel("Matrikelnummer Vorname Nachname Fach");
+        label2.setBounds(10, 30, 500, 20);
         textArea = new JTextArea();
         textArea.setEditable(false);
         scrollPane = new JScrollPane(textArea);
-        scrollPane.setBounds(10, 40, 480, 400);
+        scrollPane.setBounds(10, 50, 480, 400);
         btn_anzeigen = new JButton("Anzeigen");
         btn_anzeigen.setBounds(10, 450, 100, 20);
-        add(label);
+        add(label1);
+        add(label2);
         add(scrollPane);
         add(btn_anzeigen);
     }
@@ -31,6 +34,4 @@ public class pShowLehrer extends JPanel {
     public void setTextArea(String text) {
         textArea.setText(text);
     }
-
-
 }

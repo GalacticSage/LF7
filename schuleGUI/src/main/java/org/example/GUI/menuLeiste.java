@@ -2,12 +2,12 @@ package org.example.GUI;
 
 import javax.swing.*;
 
-public class menuBar extends JMenuBar {
+public class menuLeiste extends JMenuBar {
     private JMenu startMenu, klasseMenu, lehrerMenu, schuelerMenu;
     private JMenuItem startExit, klasseAdd, klasseDelete, klasseShow, lehrerAdd, lehrerDelete, lehrerShow, schuelerAdd, schuelerDelete, schuelerShow;
 
-    public menuBar() {
-        setBounds(0, 0, 500, 500);
+    public menuLeiste() {
+        setBounds(0, 0, 550, 100);
         startMenu = new JMenu("Start");
         klasseMenu = new JMenu("Klasse");
         lehrerMenu = new JMenu("Lehrer");
@@ -39,5 +39,45 @@ public class menuBar extends JMenuBar {
         add(klasseMenu);
         add(lehrerMenu);
         add(schuelerMenu);
+    }
+
+    public JMenuItem getKlasseAdd() {
+        return klasseAdd;
+    }
+
+    public JMenuItem getKlasseDelete() {
+        return klasseDelete;
+    }
+
+    public JMenuItem getKlasseShow() {
+        return klasseShow;
+    }
+
+    public JMenuItem getLehrerAdd() {
+        return lehrerAdd;
+    }
+
+    public JMenuItem getLehrerDelete() {
+        return lehrerDelete;
+    }
+
+    public JMenuItem getLehrerShow() {
+        return lehrerShow;
+    }
+
+    public JMenuItem getSchuelerAdd() {
+        return schuelerAdd;
+    }
+
+    public JMenuItem getSchuelerDelete() {
+        return schuelerDelete;
+    }
+
+    public JMenuItem getSchuelerShow() {
+        return schuelerShow;
+    }
+
+    public JMenuItem getStartExit() {
+        return startExit;
     }
 }

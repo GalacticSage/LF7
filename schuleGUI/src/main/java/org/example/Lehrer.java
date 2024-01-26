@@ -15,4 +15,11 @@ public class Lehrer extends Person {
     public void setFach(String fach) {
         this.fach = fach;
     }
+
+    @Override
+    public String toString() {
+        String str = "";
+        str += getMatrikelnummer() + " " + getVorname() + " " + getNachname() + " " + " " + getFach();
+        return str;
+    }
 }

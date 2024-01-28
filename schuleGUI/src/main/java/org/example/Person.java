@@ -1,9 +1,10 @@
 package org.example;
 
 public abstract class Person {
-    private String vorname, nachname, matrikelnummer;
+    private String vorname, nachname;
+    private int matrikelnummer;
 
-    public Person(String vorname, String nachname, String matrikelnummer) {
+    public Person(String vorname, String nachname, int matrikelnummer) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.matrikelnummer = matrikelnummer;
@@ -25,11 +26,11 @@ public abstract class Person {
         this.nachname = nachname;
     }
 
-    public String getMatrikelnummer() {
+    public int getMatrikelnummer() {
         return matrikelnummer;
     }
 
-    public void setMatrikelnummer(String matrikelnummer) {
+    public void setMatrikelnummer(int matrikelnummer) {
         this.matrikelnummer = matrikelnummer;
     }
 }

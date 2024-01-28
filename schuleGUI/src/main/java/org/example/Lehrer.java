@@ -3,7 +3,7 @@ package org.example;
 public class Lehrer extends Person {
     private String fach;
 
-    public Lehrer(String vorname, String nachname,String matrikelnummer, String fach) {
+    public Lehrer(String vorname, String nachname,int matrikelnummer, String fach) {
         super(vorname, nachname, matrikelnummer);
         this.fach = fach;
     }

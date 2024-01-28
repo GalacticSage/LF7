@@ -13,17 +13,15 @@ import java.util.ArrayList;
 
 public class mFrame extends JFrame implements ActionListener {
     private menuLeiste menuLeiste = new menuLeiste();
+    private Util util;
     private org.example.GUI.Lehrer.pShowLehrer pShowLehrer = new pShowLehrer();
+    private org.example.GUI.Lehrer.pAddLehrer pAddLehrer = new org.example.GUI.Lehrer.pAddLehrer();
+    private org.example.GUI.Lehrer.pRemoveLehrer pRemoveLehrer = new org.example.GUI.Lehrer.pRemoveLehrer("Noch nicht verfuegbar");
     private pGreeter pGreeter = new pGreeter();
 
-    private ArrayList<Klasse> klassen;
-    private ArrayList<Lehrer> lehrer;
-    private ArrayList<Schueler> schueler;
 
     public mFrame(ArrayList<Klasse> klassen, ArrayList<Lehrer> lehrer, ArrayList<Schueler> schueler) {
-        this.klassen = klassen;
-        this.lehrer = lehrer;
-        this.schueler = schueler;
+        this.util = new Util(klassen, lehrer, schueler);
         setTitle("Schulverwaltung");
         setSize(550, 550);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -31,6 +29,7 @@ public class mFrame extends JFrame implements ActionListener {
         showMenuBar();
         setVisible(true);
     }
+
     private void showMenuBar() {
         add(BorderLayout.NORTH, menuLeiste);
         menuLeiste.getKlasseAdd().addActionListener(this);
@@ -52,10 +51,23 @@ public class mFrame extends JFrame implements ActionListener {
         pShowLehrer.setVisible(true);
     }
 
+    private void addLehrer() {
+        add(BorderLayout.CENTER, pAddLehrer);
+        pAddLehrer.getBtn_add().addActionListener(this);
+        pAddLehrer.setVisible(true);
+    }
+
+    private void removeLehrer() {
+        add(BorderLayout.CENTER, pRemoveLehrer);
+        //pRemoveLehrer.getBtn_remove().addActionListener(this);
+        pRemoveLehrer.setVisible(true);
+    }
+
     private void removePanels() {
         try {
             remove(pGreeter);
             remove(pShowLehrer);
+            remove(pAddLehrer);
         } catch (Exception e) {
             System.out.println("Keine Panels zum entfernen");
         }
@@ -63,45 +75,50 @@ public class mFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == menuLeiste.getStartExit()){
+        if (e.getSource() == menuLeiste.getStartExit()) {
             System.exit(0);
         }
-        if (e.getSource() == menuLeiste.getKlasseShow()){
+        if (e.getSource() == menuLeiste.getKlasseShow()) {
             System.out.println("Klasse anzeigen");
         }
-        if (e.getSource() == menuLeiste.getKlasseAdd()){
+        if (e.getSource() == menuLeiste.getKlasseAdd()) {
             System.out.println("Klasse hinzufuegen");
         }
-        if (e.getSource() == menuLeiste.getKlasseDelete()){
+        if (e.getSource() == menuLeiste.getKlasseDelete()) {
             System.out.println("Klasse loeschen");
         }
-        if (e.getSource() == menuLeiste.getLehrerShow()){
+        if (e.getSource() == menuLeiste.getLehrerShow()) {
             removePanels();
             showLehrer();
             this.repaint();
             this.revalidate();
         }
-        if (e.getSource() == menuLeiste.getLehrerAdd()){
-            System.out.println("Lehrer hinzufuegen");
+        if (e.getSource() == menuLeiste.getLehrerAdd()) {
+            removePanels();
+            addLehrer();
+            this.repaint();
+            this.revalidate();
         }
-        if (e.getSource() == menuLeiste.getLehrerDelete()){
-            System.out.println("Lehrer loeschen");
+        if (e.getSource() == menuLeiste.getLehrerDelete()) {
+            removePanels();
+            removeLehrer();
+            this.repaint();
+            this.revalidate();
         }
-        if (e.getSource() == menuLeiste.getSchuelerShow()){
+        if (e.getSource() == menuLeiste.getSchuelerShow()) {
             System.out.println("Schueler anzeigen");
         }
-        if (e.getSource() == menuLeiste.getSchuelerAdd()){
+        if (e.getSource() == menuLeiste.getSchuelerAdd()) {
             System.out.println("Schueler hinzufuegen");
         }
-        if (e.getSource() == menuLeiste.getSchuelerDelete()){
+        if (e.getSource() == menuLeiste.getSchuelerDelete()) {
             System.out.println("Schueler loeschen");
         }
-        if (e.getSource() == pShowLehrer.getBtn_anzeigen()){
-            String str = "";
-            for (Lehrer lehrer : lehrer) {
-                str += lehrer.toString() + "\n";
-            }
-            pShowLehrer.setTextArea(str);
+        if (e.getSource() == pShowLehrer.getBtn_anzeigen()) {
+            util.action_Lehrer_btn_anzeigen(pShowLehrer);
+        }
+        if (e.getSource() == pAddLehrer.getBtn_add()) {
+            util.action_Lehrer_btn_add(pAddLehrer);
         }
     }
 }

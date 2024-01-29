@@ -8,7 +8,7 @@ public class Schueler extends Person {
     @Override
     public String toString() {
         String str = "";
-        str += getVorname() + " " + getNachname() + " " + getMatrikelnummer();
+        str += getMatrikelnummer() + " " + getVorname() + " " + getNachname();
         return str;
     }
 }

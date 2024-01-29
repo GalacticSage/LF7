@@ -1,13 +1,13 @@
-package org.example.GUI.Lehrer;
+package org.example.GUI.Schueler;
 
 import javax.swing.*;
 
-public class pAddLehrer extends JPanel {
-    JLabel lbl_vorname, lbl_nachname, lbl_id, lbl_fach, lbl_info;
-    JTextField txt_vorname, txt_nachname, txt_matrikelnummer, txt_fach;
+public class pAddSchueler extends JPanel {
+    JLabel lbl_vorname, lbl_nachname, lbl_id, lbl_info;
+    JTextField txt_vorname, txt_nachname, txt_matrikelnummer;
     JButton btn_add;
 
-    public pAddLehrer() {
+    public pAddSchueler() {
         setLayout(null);
         lbl_vorname = new JLabel("Vorname:");
         lbl_vorname.setBounds(10, 10, 100, 25);
@@ -27,12 +27,6 @@ public class pAddLehrer extends JPanel {
         txt_matrikelnummer = new JTextField();
         txt_matrikelnummer.setBounds(120, 70, 300, 25);
         add(txt_matrikelnummer);
-        lbl_fach = new JLabel("Fach:");
-        lbl_fach.setBounds(10, 100, 100, 25);
-        add(lbl_fach);
-        txt_fach = new JTextField();
-        txt_fach.setBounds(120, 100, 300, 25);
-        add(txt_fach);
         btn_add = new JButton("Hinzufügen");
         btn_add.setBounds(10, 130, 150, 25);
         add(btn_add);
@@ -57,10 +51,6 @@ public class pAddLehrer extends JPanel {
         return txt_matrikelnummer.getText();
     }
 
-    public String getTxt_fach() {
-        return txt_fach.getText();
-    }
-
     public void setLbl_info(String str) {
         lbl_info.setText(str);
         lbl_info.setForeground(java.awt.Color.GREEN);
@@ -75,6 +65,5 @@ public class pAddLehrer extends JPanel {
         txt_vorname.setText("");
         txt_nachname.setText("");
         txt_matrikelnummer.setText("");
-        txt_fach.setText("");
     }
 }

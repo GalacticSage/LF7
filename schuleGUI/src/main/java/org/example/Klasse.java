@@ -3,13 +3,13 @@ package org.example;
 import java.util.ArrayList;
 
 public class Klasse {
-    private String Klassenname;
-    private Lehrer Klassenlehrer;
+    private String klassenname;
+    private Lehrer klassenlehrer;
     private ArrayList<Schueler> schuelerListe = new ArrayList<>();
 
     public Klasse(String Klassenname, Lehrer Klassenlehrer) {
-        this.Klassenname = Klassenname;
-        this.Klassenlehrer = Klassenlehrer;
+        this.klassenname = Klassenname;
+        this.klassenlehrer = Klassenlehrer;
     }
 
     public void addSchueler(Schueler schueler) {
@@ -21,19 +21,19 @@ public class Klasse {
     }
 
     public String getKlassenname() {
-        return Klassenname;
+        return klassenname;
     }
 
     public void setKlassenname(String Klassenname) {
-        this.Klassenname = Klassenname;
+        this.klassenname = Klassenname;
     }
 
     public Lehrer getKlassenlehrer() {
-        return Klassenlehrer;
+        return klassenlehrer;
     }
 
     public void setKlassenlehrer(Lehrer Klassenlehrer) {
-        this.Klassenlehrer = Klassenlehrer;
+        this.klassenlehrer = Klassenlehrer;
     }
 
     public String getSchuelerListe() {
@@ -44,10 +44,23 @@ public class Klasse {
         return str;
     }
 
+    public Schueler getSchueler(int matrikelnummer) {
+        for (Schueler schueler : schuelerListe) {
+            if (schueler.getMatrikelnummer() == matrikelnummer) {
+                return schueler;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Schueler> getSchuelerListeArray() {
+        return schuelerListe;
+    }
+
     @Override
     public String toString() {
         String str = "";
-        str += "Klasse: " + Klassenname + "\nKlassenlehrer: " + Klassenlehrer.getVorname() + " " + Klassenlehrer.getNachname() + "\nSchueler:\nVorname | Nachname | Matrikelnummer \n";
+        str += "Klasse: " + klassenname + "\nKlassenlehrer: " + klassenlehrer.getVorname() + " " + klassenlehrer.getNachname() + "\nSchueler:\nVorname | Nachname | Matrikelnummer \n";
         str += getSchuelerListe();
         return str;
     }

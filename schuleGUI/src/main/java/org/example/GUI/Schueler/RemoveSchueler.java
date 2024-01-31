@@ -1,32 +1,32 @@
-package org.example.GUI.Lehrer;
+package org.example.GUI.Schueler;
 
 import javax.swing.*;
 
-public class pRemoveLehrer extends JPanel {
-    private JComboBox comboBoxLehrer;
+public class RemoveSchueler extends JPanel {
+    private JComboBox comboBoxSchueler;
     private JButton btn_remove;
     private JLabel lbl_info;
 
-    public pRemoveLehrer() {
-        comboBoxLehrer = new JComboBox();
+    public RemoveSchueler() {
+        comboBoxSchueler = new JComboBox();
         btn_remove = new JButton("Entfernen");
         lbl_info = new JLabel("Lehrer entfernen");
         add(lbl_info);
-        add(comboBoxLehrer);
+        add(comboBoxSchueler);
         add(btn_remove);
     }
 
-    public pRemoveLehrer(String[] entries) {
-        comboBoxLehrer = new JComboBox();
+    public RemoveSchueler(String[] entries) {
+        comboBoxSchueler = new JComboBox();
         btn_remove = new JButton("Entfernen");
         lbl_info = new JLabel("Lehrer entfernen");
         add(lbl_info);
-        add(comboBoxLehrer);
+        add(comboBoxSchueler);
         add(btn_remove);
         setEntries(entries);
     }
 
-    public pRemoveLehrer(String yetToBeImplemented) {
+    public RemoveSchueler(String yetToBeImplemented) {
         lbl_info = new JLabel(yetToBeImplemented);
         lbl_info.setBounds(0, 0, 200, 200);
         lbl_info.setForeground(java.awt.Color.RED);
@@ -35,9 +35,9 @@ public class pRemoveLehrer extends JPanel {
     }
 
     public void setEntries(String[] entries) {
-        comboBoxLehrer.removeAllItems();
+        comboBoxSchueler.removeAllItems();
         for (String entry : entries) {
-            comboBoxLehrer.addItem(entry);
+            comboBoxSchueler.addItem(entry);
         }
     }
 

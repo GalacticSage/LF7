@@ -2,12 +2,12 @@ package org.example.GUI.Lehrer;
 
 import javax.swing.*;
 
-public class pAddLehrer extends JPanel {
+public class AddLehrer extends JPanel {
     JLabel lbl_vorname, lbl_nachname, lbl_id, lbl_fach, lbl_info;
     JTextField txt_vorname, txt_nachname, txt_matrikelnummer, txt_fach;
     JButton btn_add;
 
-    public pAddLehrer() {
+    public AddLehrer() {
         setLayout(null);
         lbl_vorname = new JLabel("Vorname:");
         lbl_vorname.setBounds(10, 10, 100, 25);

@@ -1,9 +1,9 @@
 package org.example.GUI;
 
-import org.example.GUI.Lehrer.pAddLehrer;
-import org.example.GUI.Lehrer.pShowLehrer;
-import org.example.GUI.Schueler.pAddSchueler;
-import org.example.GUI.Schueler.pShowSchueler;
+import org.example.GUI.Lehrer.AddLehrer;
+import org.example.GUI.Lehrer.ShowLehrer;
+import org.example.GUI.Schueler.AddSchueler;
+import org.example.GUI.Schueler.ShowSchueler;
 import org.example.Klasse;
 import org.example.Lehrer;
 import org.example.Schueler;
@@ -13,15 +13,34 @@ import java.util.ArrayList;
 public class Util {
     private ArrayList<Klasse> klassen;
     private ArrayList<Lehrer> lehrer;
-    private ArrayList<Schueler> schueler;
 
-    public Util(ArrayList<Klasse> klassen, ArrayList<Lehrer> lehrer, ArrayList<Schueler> schueler) {
+    public Util(ArrayList<Klasse> klassen, ArrayList<Lehrer> lehrer) {
         this.klassen = klassen;
         this.lehrer = lehrer;
-        this.schueler = schueler;
     }
 
-    public void action_Lehrer_btn_anzeigen(pShowLehrer pShowLehrer) {
+    public Klasse getKlasse(String klassenname) {
+        for (Klasse klasse : klassen) {
+            if (klasse.getKlassenname().equals(klassenname)) {
+                return klasse;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Klasse> getKlassen() {
+        return klassen;
+    }
+
+    public String getKlassenListe() {
+        String str = "";
+        for (Klasse klasse : klassen) {
+            str += klasse.getKlassenname() + "\n";
+        }
+        return str;
+    }
+
+    public void action_Lehrer_btn_anzeigen(ShowLehrer pShowLehrer) {
         String str = "";
         for (Lehrer lehrer : lehrer) {
             str += lehrer.toString() + "\n";
@@ -29,15 +48,15 @@ public class Util {
         pShowLehrer.setTextArea(str);
     }
 
-    public void action_Schueler_btn_anzeigen(pShowSchueler pShowSchueler) {
+    public void action_Schueler_btn_anzeigen(ShowSchueler pShowSchueler) {
         String str = "";
-        for (Schueler schueler : schueler) {
-            str += schueler.toString() + "\n";
+        for (Klasse klasse : klassen) {
+            str += klasse.getSchuelerListe();
         }
         pShowSchueler.setTextArea(str);
     }
 
-    public void action_Lehrer_btn_add(pAddLehrer pAddLehrer) {
+    public void action_Lehrer_btn_add(AddLehrer pAddLehrer) {
         String vorname = pAddLehrer.getTxt_vorname();
         String nachname = pAddLehrer.getTxt_nachname();
         int matrikelnummer = 0;
@@ -66,7 +85,7 @@ public class Util {
         pAddLehrer.setLbl_info("Lehrer " + vorname + " " + nachname + " hinzugefügt!");
     }
 
-    public void action_Schueler_btn_add(pAddSchueler pAddSchueler) {
+    public void action_Schueler_btn_add(AddSchueler pAddSchueler) {
         String vorname = pAddSchueler.getTxt_vorname();
         String nachname = pAddSchueler.getTxt_nachname();
         int matrikelnummer = 0;
@@ -83,14 +102,15 @@ public class Util {
             return;
         }
         //check if matrikelnummer is already in use
-        for (Schueler schueler : schueler) {
-            if (schueler.getMatrikelnummer() == matrikelnummer) {
-                pAddSchueler.setLbl_info_error("Matrikelnummer bereits vergeben!");
-                return;
+        for (Klasse klasse : klassen) {
+            for (Schueler schueler : klasse.getSchuelerListeArray()) {
+                if (schueler.getMatrikelnummer() == matrikelnummer) {
+                    pAddSchueler.setLbl_info_error("Matrikelnummer bereits vergeben!");
+                    return;
+                }
             }
         }
-        Schueler schueler = new Schueler(vorname, nachname, matrikelnummer);
-        this.schueler.add(schueler);
+        Schueler schueler = new Schueler(vorname, nachname, matrikelnummer, null);
         pAddSchueler.setLbl_info("Schueler " + vorname + " " + nachname + " hinzugefügt!");
     }
 }

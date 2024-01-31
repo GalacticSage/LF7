@@ -2,11 +2,11 @@ package org.example.GUI;
 
 import javax.swing.*;
 
-public class menuLeiste extends JMenuBar {
+public class MenuLeiste extends JMenuBar {
     private JMenu startMenu, klasseMenu, lehrerMenu, schuelerMenu;
     private JMenuItem startExit, klasseAdd, klasseDelete, klasseShow, lehrerAdd, lehrerDelete, lehrerShow, schuelerAdd, schuelerDelete, schuelerShow;
 
-    public menuLeiste() {
+    public MenuLeiste() {
         setBounds(0, 0, 550, 100);
         startMenu = new JMenu("Start");
         klasseMenu = new JMenu("Klasse");

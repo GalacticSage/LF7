@@ -1,32 +1,32 @@
 package org.example.GUI;
 
-import org.example.GUI.Lehrer.pShowLehrer;
 import org.example.Klasse;
 import org.example.Lehrer;
-import org.example.Schueler;
+import org.example.GUI.Klasse.*;
+import org.example.GUI.Lehrer.*;
+import org.example.GUI.Schueler.*;
 
 import javax.swing.*;
 import java.awt.*;
-import org.example.GUI.Lehrer.*;
-import org.example.GUI.Schueler.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class mFrame extends JFrame implements ActionListener {
-    private menuLeiste menuLeiste = new menuLeiste();
+    private MenuLeiste menuLeiste = new MenuLeiste();
     private Util util;
-    private pShowLehrer pShowLehrer = new pShowLehrer();
-    private pAddLehrer pAddLehrer = new pAddLehrer();
-    private pRemoveLehrer pRemoveLehrer = new pRemoveLehrer("Noch nicht verfuegbar");
-    private pShowSchueler pShowSchueler = new pShowSchueler();
-    private pAddSchueler pAddSchueler = new pAddSchueler();
-    private pRemoveSchueler pRemoveSchueler = new pRemoveSchueler("Noch nicht verfuegbar");
+    private RemoveKlasse pRemoveKlasse = new RemoveKlasse("Noch nicht verfuegbar");
+    private ShowLehrer pShowLehrer = new ShowLehrer();
+    private AddLehrer pAddLehrer = new AddLehrer();
+    private RemoveLehrer pRemoveLehrer = new RemoveLehrer("Noch nicht verfuegbar");
+    private ShowSchueler pShowSchueler = new ShowSchueler();
+    private AddSchueler pAddSchueler;
+    private RemoveSchueler pRemoveSchueler = new RemoveSchueler("Noch nicht verfuegbar");
     private pGreeter pGreeter = new pGreeter();
 
 
-    public mFrame(ArrayList<Klasse> klassen, ArrayList<Lehrer> lehrer, ArrayList<Schueler> schueler) {
-        this.util = new Util(klassen, lehrer, schueler);
+    public mFrame(ArrayList<Klasse> klassen, ArrayList<Lehrer> lehrer) {
+        this.util = new Util(klassen, lehrer);
         setTitle("Schulverwaltung");
         setSize(550, 550);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -50,10 +50,17 @@ public class mFrame extends JFrame implements ActionListener {
         menuLeiste.setVisible(true);
     }
 
+    private void removeKlasse() {
+        add(BorderLayout.CENTER, pRemoveKlasse);
+        //pRemoveKlasse.getBtn_remove().addActionListener(this);
+        pRemoveKlasse.setVisible(true);
+    }
+
     private void showLehrer() {
         add(BorderLayout.CENTER, pShowLehrer);
         pShowLehrer.getBtn_anzeigen().addActionListener(this);
         pShowLehrer.setVisible(true);
+        util.action_Lehrer_btn_anzeigen(pShowLehrer);
     }
 
     private void addLehrer() {
@@ -72,9 +79,11 @@ public class mFrame extends JFrame implements ActionListener {
         add(BorderLayout.CENTER, pShowSchueler);
         pShowSchueler.getBtn_anzeigen().addActionListener(this);
         pShowSchueler.setVisible(true);
+        util.action_Schueler_btn_anzeigen(pShowSchueler);
     }
 
     private void addSchueler() {
+        pAddSchueler = new AddSchueler(util);
         add(BorderLayout.CENTER, pAddSchueler);
         pAddSchueler.getBtn_add().addActionListener(this);
         pAddSchueler.setVisible(true);
@@ -95,6 +104,7 @@ public class mFrame extends JFrame implements ActionListener {
             remove(pShowSchueler);
             remove(pAddSchueler);
             remove(pRemoveSchueler);
+            remove(pRemoveKlasse);
         } catch (Exception e) {
             System.out.println("Keine Panels zum entfernen");
         }
@@ -112,7 +122,10 @@ public class mFrame extends JFrame implements ActionListener {
             System.out.println("Klasse hinzufuegen");
         }
         if (e.getSource() == menuLeiste.getKlasseDelete()) {
-            System.out.println("Klasse loeschen");
+            removePanels();
+            removeKlasse();
+            this.repaint();
+            this.revalidate();
         }
         if (e.getSource() == menuLeiste.getLehrerShow()) {
             removePanels();
@@ -135,6 +148,7 @@ public class mFrame extends JFrame implements ActionListener {
         if (e.getSource() == menuLeiste.getSchuelerShow()) {
             removePanels();
             showSchueler();
+
             this.repaint();
             this.revalidate();
         }

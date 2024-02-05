@@ -14,7 +14,10 @@ public class Main {
         lehrerListe.add(lehrer1);
         lehrerListe.add(lehrer2);
         Klasse klasse1 = new Klasse("INF3A", lehrer1);
+        Klasse klasse2 = new Klasse("INF3B", lehrer2);
         klassenListe.add(klasse1);
+        klassenListe.add(klasse2);
+        System.out.println(klasse1.toString());
         Schueler schueler1 = new Schueler("Hans", "Muster", 1, klasse1);
         Schueler schueler2 = new Schueler("Peter", "Muster", 2 , klasse1);
 

@@ -16,6 +16,10 @@ public class Lehrer extends Person {
         this.fach = fach;
     }
 
+    public String getVornameNachname() {
+        return getVorname() + " " + getNachname();
+    }
+
     @Override
     public String toString() {
         String str = "";

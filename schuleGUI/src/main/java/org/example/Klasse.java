@@ -60,7 +60,7 @@ public class Klasse {
     @Override
     public String toString() {
         String str = "";
-        str += "Klasse: " + klassenname + "\nKlassenlehrer: " + klassenlehrer.getVorname() + " " + klassenlehrer.getNachname() + "\nSchueler:\nVorname | Nachname | Matrikelnummer \n";
+        str += klassenname + " " + klassenlehrer.getVornameNachname() + "\n";
         str += getSchuelerListe();
         return str;
     }

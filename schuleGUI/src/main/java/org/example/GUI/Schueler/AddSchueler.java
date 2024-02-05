@@ -10,10 +10,8 @@ public class AddSchueler extends JPanel {
     JTextField txt_vorname, txt_nachname, txt_matrikelnummer;
     JComboBox comboBoxKlasse;
     JButton btn_add;
-    private Util util;
 
-    public AddSchueler(Util util) {
-        this.util = util;
+    public AddSchueler() {
         setLayout(null);
 
         lbl_vorname = new JLabel("Vorname:");
@@ -47,7 +45,6 @@ public class AddSchueler extends JPanel {
         comboBoxKlasse = new JComboBox();
         comboBoxKlasse.setBounds(120, 100, 300, 25);
         add(comboBoxKlasse);
-        updateKlassenCombobox();
 
         btn_add = new JButton("Hinzufügen");
         btn_add.setBounds(10, 130, 150, 25);
@@ -59,7 +56,7 @@ public class AddSchueler extends JPanel {
     }
 
 
-    private void updateKlassenCombobox(){
+    public void updateKlassenCombobox(Util util){
         comboBoxKlasse.removeAllItems();
         for (Klasse klasse : util.getKlassen()) {
             comboBoxKlasse.addItem(klasse.getKlassenname());
@@ -92,6 +89,11 @@ public class AddSchueler extends JPanel {
     public void setLbl_info_error(String str) {
         lbl_info.setText(str);
         lbl_info.setForeground(java.awt.Color.RED);
+    }
+
+    //get selected Klasse
+    public String getSelectedKlasse(){
+        return comboBoxKlasse.getSelectedItem().toString();
     }
 
 

@@ -17,13 +17,14 @@ public class mFrame extends JFrame implements ActionListener {
     private Util util;
     private RemoveKlasse RemoveKlasse = new RemoveKlasse("Noch nicht verfuegbar");
     private AddKlasse AddKlasse = new AddKlasse();
+    private ShowKlasse ShowKlasse = new ShowKlasse();
     private ShowLehrer ShowLehrer = new ShowLehrer();
     private AddLehrer AddLehrer = new AddLehrer();
     private RemoveLehrer RemoveLehrer = new RemoveLehrer("Noch nicht verfuegbar");
     private ShowSchueler ShowSchueler = new ShowSchueler();
     private AddSchueler AddSchueler = new AddSchueler();
     private RemoveSchueler RemoveSchueler = new RemoveSchueler("Noch nicht verfuegbar");
-    private pGreeter Greeter = new pGreeter();
+    private org.example.GUI.Greeter Greeter = new Greeter();
 
 
     public mFrame(ArrayList<Klasse> klassen, ArrayList<Lehrer> lehrer) {
@@ -51,6 +52,11 @@ public class mFrame extends JFrame implements ActionListener {
         menuLeiste.setVisible(true);
     }
 
+    private void showKlasse() {
+        add(BorderLayout.CENTER, ShowKlasse);
+        ShowKlasse.setTxt_klassen(util.getKlassenListe());
+        ShowKlasse.setVisible(true);
+    }
     private void AddKlasse(){
         add(BorderLayout.CENTER, AddKlasse);
         AddKlasse.updateLehrerListe(util.getLehrer());
@@ -66,9 +72,8 @@ public class mFrame extends JFrame implements ActionListener {
 
     private void showLehrer() {
         add(BorderLayout.CENTER, ShowLehrer);
-        ShowLehrer.getBtn_anzeigen().addActionListener(this);
         ShowLehrer.setVisible(true);
-        util.action_Lehrer_btn_anzeigen(ShowLehrer);
+        util.action_Lehrer_anzeigen(ShowLehrer);
     }
 
     private void addLehrer() {
@@ -85,9 +90,8 @@ public class mFrame extends JFrame implements ActionListener {
 
     private void showSchueler() {
         add(BorderLayout.CENTER, ShowSchueler);
-        ShowSchueler.getBtn_anzeigen().addActionListener(this);
         ShowSchueler.setVisible(true);
-        util.action_Schueler_btn_anzeigen(ShowSchueler);
+        util.action_Schueler_anzeigen(ShowSchueler);
     }
 
     private void addSchueler() {
@@ -114,6 +118,7 @@ public class mFrame extends JFrame implements ActionListener {
             remove(RemoveSchueler);
             remove(RemoveKlasse);
             remove(AddKlasse);
+            remove(ShowKlasse);
         } catch (Exception e) {
             System.out.println("Keine Panels zum entfernen");
         }
@@ -125,7 +130,10 @@ public class mFrame extends JFrame implements ActionListener {
             System.exit(0);
         }
         if (e.getSource() == menuLeiste.getKlasseShow()) {
-            System.out.println("Klasse anzeigen");
+            removePanels();
+            showKlasse();
+            this.repaint();
+            this.revalidate();
         }
         if (e.getSource() == menuLeiste.getKlasseAdd()) {
             removePanels();
@@ -175,14 +183,8 @@ public class mFrame extends JFrame implements ActionListener {
             this.repaint();
             this.revalidate();
         }
-        if (e.getSource() == ShowLehrer.getBtn_anzeigen()) {
-            util.action_Lehrer_btn_anzeigen(ShowLehrer);
-        }
         if (e.getSource() == AddLehrer.getBtn_add()) {
             util.action_Lehrer_btn_add(AddLehrer);
-        }
-        if (e.getSource() == ShowSchueler.getBtn_anzeigen()) {
-            util.action_Schueler_btn_anzeigen(ShowSchueler);
         }
         if (e.getSource() == AddSchueler.getBtn_add()) {
             util.action_Schueler_btn_add(AddSchueler);

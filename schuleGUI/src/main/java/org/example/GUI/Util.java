@@ -49,12 +49,12 @@ public class Util {
     public String getKlassenListe() {
         String str = "";
         for (Klasse klasse : klassen) {
-            str += klasse.getKlassenname() + "\n";
+            str += klasse.toString() + "\n";
         }
         return str;
     }
 
-    public void action_Lehrer_btn_anzeigen(ShowLehrer ShowLehrer) {
+    public void action_Lehrer_anzeigen(ShowLehrer ShowLehrer) {
         String str = "";
         for (Lehrer lehrer : lehrer) {
             str += lehrer.toString() + "\n";
@@ -81,7 +81,7 @@ public class Util {
         AddKlasse.setLbl_info("Klasse " + klassenname + " hinzugefügt!");
     }
 
-    public void action_Schueler_btn_anzeigen(ShowSchueler ShowSchueler) {
+    public void action_Schueler_anzeigen(ShowSchueler ShowSchueler) {
         String str = "";
         for (Klasse klasse : klassen) {
             str += klasse.getSchuelerListe();

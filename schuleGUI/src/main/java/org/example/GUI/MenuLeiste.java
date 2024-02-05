@@ -27,13 +27,13 @@ public class MenuLeiste extends JMenuBar {
         startMenu.add(startExit);
         klasseMenu.add(klasseShow);
         klasseMenu.add(klasseAdd);
-        klasseMenu.add(klasseDelete);
+        //klasseMenu.add(klasseDelete);
         lehrerMenu.add(lehrerShow);
         lehrerMenu.add(lehrerAdd);
-        lehrerMenu.add(lehrerDelete);
+        //lehrerMenu.add(lehrerDelete);
         schuelerMenu.add(schuelerShow);
         schuelerMenu.add(schuelerAdd);
-        schuelerMenu.add(schuelerDelete);
+        //schuelerMenu.add(schuelerDelete);
 
         add(startMenu);
         add(klasseMenu);

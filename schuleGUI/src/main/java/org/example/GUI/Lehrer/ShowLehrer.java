@@ -6,7 +6,6 @@ public class ShowLehrer extends JPanel {
     private JLabel label1, label2;
     private JTextArea textArea;
     private JScrollPane scrollPane;
-    private JButton btn_anzeigen;
 
     public ShowLehrer() {
         setLayout(null);
@@ -19,17 +18,11 @@ public class ShowLehrer extends JPanel {
         textArea.setEditable(false);
         scrollPane = new JScrollPane(textArea);
         scrollPane.setBounds(10, 50, 480, 400);
-        btn_anzeigen = new JButton("Refresh");
-        btn_anzeigen.setBounds(10, 450, 100, 20);
         add(label1);
         add(label2);
         add(scrollPane);
-        add(btn_anzeigen);
     }
 
-    public JButton getBtn_anzeigen() {
-        return btn_anzeigen;
-    }
 
     public void setTextArea(String text) {
         textArea.setText(text);

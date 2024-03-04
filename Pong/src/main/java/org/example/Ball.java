@@ -74,4 +74,9 @@ public class Ball {
         g.fillOval(x, y, size, size);
 
     }
+
+    //getter in Ball class
+	public int getY(){
+        return y;
+    }
 }
